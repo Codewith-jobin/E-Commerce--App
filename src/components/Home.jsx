@@ -65,16 +65,23 @@ function Home() {
       onChange={(e)=>setpassword(e.target.value)}
       />
     </FormControl>
+    <Box  sx={{bgcolor:"#0073CE", width:"17rem",height:"2rem", margin:"4rem 0 0 1.9rem", textAlign:"center", color:"white", paddingTop:".5rem", fontSize:".9rem",}}>
+      <Typography sx={{ fontWeight:'.1rem'}} variant="body1">
+        sign in
+      </Typography>
+        
+
+    </Box>
 
 
     </Box>
-    <Box sx={{display:"flex", flexDirection:"coloumn", justifyContent:"space-between",bgcolor:"#A7C0D1", height:"18rem", marginTop:"auto"}}>
-      <Box sx={{margin:"8.4rem 0 0 3rem", fontSize:".7rem"}}>
+    <Box sx={{display:"flex",flexDirection:"column" ,justifyContent:"centre",bgcolor:"#A7C0D1", height:"18rem", marginTop:"auto"}}>
+      <Box sx={{margin:"8.4rem 0 0 3rem", fontSize:".7rem", width:"24rem"}}>
         <p>Copyright © 2024 <span  style={{color:"#0073CE"}}>Yo!Kart</span> TV-10.1.0.20240926</p>
       </Box>
-    <Box sx={{ display:"flex", flexDirection:"column",bgcolor:"red"}}>
-      <Typography sx={{textAlign:"center"}}>
-        BOOK A DEMO
+    <Box sx={{ textAlign:"center",bgcolor:"#0073CE", margin:"3rem 0 0 0",height:"34rem", marginBottom:"40rem",borderRadius:".3rem"}}>
+      <Typography sx={{textAlign:"center", width:"10rem",justifyContent:"center"}}>
+        <p style={{marginLeft:"6rem", width:"10rem", color:"white", fontSize:"1rem", fontWeight:"bold"}}>BOOK A DEMO</p>
       </Typography>
 
     </Box>
