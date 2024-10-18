@@ -1,93 +1,84 @@
 // import { useState } from "react"
 import { useState } from "react";
 import "./Home.css"
-import { Box, FormControl, FormLabel, Grid2, InputLabel, Paper, TextField, Typography} from "@mui/material";
-// import { useNavigate } from 'react-router-dom';
+import {Switch} from "@mui/material";
+import { FormLabel, Grid2,Button, Paper, TextField, Typography, grid2Classes, paperClasses, Stack, FormControl, FormControlLabel} from "@mui/material";
+import { useNavigate } from 'react-router-dom';
 
 
 function Home() {
-  const[username,setusername]=useState("")
-  const[password,setpassword]=useState("")
-  
-  const[isToggeld,setisToggled]=useState(false);
+  // const[username,setusername]=useState("")
+  // const[password,setpassword]=useState("")
+  const [checked , setchecked]=useState("false")
+  // const navigate= useNavigate()
 
-  // const handletoggle=()=>{
-  //   setisToggled((prev)=>!prev)
-  // }
+  const handletoggle=(event)=>{
+    setchecked(event.target.checked)
+  }
+
+
+ 
   // const correctusername= "admin";
   // const correctpassword="123456"
-  // const handlesignin=()=>{
-  //   if(username===correctusername && password===correctpassword){
-  //     alert("login succesfull")
+//   const handlesignin=()=>{
+//     if(username===correctusername && password===correctpassword){
+//       alert("login succesfull")
+//       navigate("/dashboard")
       
       
 
 
-  // }
-  // else{
-  //   alert("missing credentials")
+//   }
+//   else{
+//     console.log("missing credentials")
    
 
-  // }
+//   }
 // }
   return (
-  <Box sx={{display:"flex", flexDirection:"column", bgcolor:"#0073CE", height:"100vh", width:"24rem"}}>
-    <Box sx={{position:"absolute" ,bgcolor:"white", height:"24rem",width:"22rem", marginTop:"4rem", marginLeft:".9rem", marginRight:"1rem", paddingBottom:"1.6rem"}}>
+    <Grid2 container
+    sx={{height:"100vh", width:"80rem",
+      backgroundColor:"#2e7d32",
+      display:"flex",
+      flexDirection:"column"
+    }}>
+      <Stack sx={{bgcolor:"#1976d2", height:"22rem"}} component={Paper}>
 
+        
+      </Stack>
+      <Stack sx={{bgcolor:"white", height:"31.6rem", width :"28rem",position:"absolute", top:"12%", left:"32%", borderRadius:"0"}} component={Paper}>
+        <Typography sx={{margin:"1.7rem 0 0 2.7rem"}} variant="h5">Sign in</Typography>
+        <FormLabel sx={{fontSize:".8rem", margin:".1rem 0 0 3rem"}}>please enter your login credentials</FormLabel>
+        <Typography sx={{margin:"2rem 0 0 2.7rem"}} variant="body2">Username</Typography>
+        <TextField sx={{ borderRadius:"0",width:"22rem", margin:".6rem 0 0 2.7rem" ,'& .MuiInputBase-input':{height:".8rem" }}} variant="outlined"></TextField>
+        <Typography sx={{margin:"2rem 0 0 2.7rem"}} variant="body2">Password</Typography>
+        <TextField sx={{ width:"22rem", margin:".6rem 0 0 2.7rem" ,'& .MuiInputBase-input':{height:".8rem" }}}></TextField>
+        <FormControlLabel
+        sx={{margin:"1.2rem 0 0 2.7rem"}}
+        control={ 
+          <Switch 
+          checked={checked}
+          onChange={handletoggle}
+          color="primary"/>
+        }
+        label={
+          <Typography sx={{fontSize:".9rem"}} variant="body1">Remember me</Typography>
+        }
+        />
+        <Button sx={{bgcolor:"primary", height:"3.4rem", width:"22rem", margin:"1.4rem 0 0 3rem", borderRadius:"0"}} variant="contained">
+          Sign in
 
-    <Typography  sx={{fontSize:"1.5rem",margin:"1.5rem 0 0 2rem",fontWeight:"bold"}} variant="h1" gutterBottom>
-      Sign in
-    
-
-
-    </Typography>
-    <Typography sx={{ fontSize:".8rem", margin:".3rem 0 0 2rem"}} variant="body1" gutterBottom>
-      please enter your login credentials
-
-    </Typography>
-    <FormControl>
-      <InputLabel htmlFor="username" sx={{marginLeft:"1rem", marginTop:"1rem",fontSize:".8rem", fontWeight:"bold", color:"black"}}>Username</InputLabel>
-      <TextField sx={{height:"2.5rem", marginTop:"3.7rem", marginLeft:"2rem", width:"17rem", bgcolor:"#A7C0D1" }}
-      id="username"
-      variant="outlined"
-      value={username}
-      size="small"
-      onChange={(e)=>setusername(e.target.value)}
-      />
-    </FormControl>
-    <FormControl>
-      <InputLabel htmlFor="password" sx={{marginLeft:"1rem", marginTop:".3rem", fontSize:".8rem" ,fontWeight:"bold", color:"black"}}>password</InputLabel>
-      <TextField sx={{height:"2.5rem", marginTop:"3rem", marginLeft:"2rem", width:"17rem", bgcolor:"#A7C0D1" }}
-      id="password"
-      variant="outlined"
-      value={password}
-      size="small"
-      onChange={(e)=>setpassword(e.target.value)}
-      />
-    </FormControl>
-    <Box  sx={{bgcolor:"#0073CE", width:"17rem",height:"2rem", margin:"4rem 0 0 1.9rem", textAlign:"center", color:"white", paddingTop:".5rem", fontSize:".9rem",}}>
-      <Typography sx={{ fontWeight:'.1rem'}} variant="body1">
-        sign in
-      </Typography>
+        </Button>
         
 
-    </Box>
+      </Stack>
+      <Stack sx={{bgcolor:"white",height:"17.5rem"}}></Stack>
+      
+       
 
 
-    </Box>
-    <Box sx={{display:"flex",flexDirection:"column" ,justifyContent:"centre",bgcolor:"#A7C0D1", height:"18rem", marginTop:"auto"}}>
-      <Box sx={{margin:"8.4rem 0 0 3rem", fontSize:".7rem", width:"24rem"}}>
-        <p>Copyright © 2024 <span  style={{color:"#0073CE"}}>Yo!Kart</span> TV-10.1.0.20240926</p>
-      </Box>
-    <Box sx={{ textAlign:"center",bgcolor:"#0073CE", margin:"3rem 0 0 0",height:"34rem", marginBottom:"40rem",borderRadius:".3rem"}}>
-      <Typography sx={{textAlign:"center", width:"10rem",justifyContent:"center"}}>
-        <p style={{marginLeft:"6rem", width:"10rem", color:"white", fontSize:"1rem", fontWeight:"bold"}}>BOOK A DEMO</p>
-      </Typography>
-
-    </Box>
-    </Box>
-
-  </Box>
+    </Grid2>
+  
   )
 }
 
